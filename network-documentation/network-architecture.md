@@ -42,9 +42,15 @@ The route table below is associated with our Private Subnet `10.0.2.0/24`
 
 ### Security Group Rules
 
-The following table lists the security group we put in place to be used for instances on the private subnet (`10.0.2.0/24`)
-| 
+The following table lists the security group we put in place to be used for instances on the private subnet (`10.0.2.0/24`). The `172.16.x.0/24` networks are the VPN tunnels to only the team members who needed remote access to the instances in the cloud and depending on the type of work they needed to do.
 
+| **IP version** | **Traffice Type** | **Protocol** | **Port Range** | **Source**      | **Description**                                                                                                          |
+| :------------- | :---------------- | :----------- | :------------- | :-------------- | :----------------------------------------------------------------------------------------------------------------------- |
+| IPv4           | All traffic       | All          | All            | `172.16.1.0/24` | Allows traffic from Marcus's off-cloud LAN.                                                                              |
+| IPv4           | All traffic       | All          | All            | `172.16.2.0/24` | Allows traffic from Ian's off-cloud LAN.                                                                                 |
+| IPv4           | All traffic       | All          | All            | `172.16.3.0/24` | Allows traffic from Juan's off-cloud LAN.                                                                                |
+| IPv4           | All traffic       | RDP          | All            | `172.16.4.0/24` | Allows traffic from Kevin's off-cloud LAN.                                                                               |
+| IPv4           | All traffic       | All          | All            | `10.0.2.0/24`   | Allows traffic between the instances on the private subnet to facilitate the adding of Linux servers to the ADDS domain and to test for connectivity with pings. |
 
 ## Virtual Machines in the Cloud
 
@@ -58,6 +64,6 @@ While we considered using our own server to back up the data server, since we ar
 
 ## Future Considerations
 
-One possible implementation we discussed but, did not have the time to put in place, was setting up a fallback server for the data server. So that when the Data server is backed up, a fallback server would have its volume updated to match. Should the Data Server be taken down due to an attack, a lambda function would spin up the fallback to ensure continued availability of the data.
+One possible implementation we discussed but, did not have the time to put in place, was setting up a fallback server for the data server. When the Data server is backed up, a fallback server would have its volume updated to match. Should the Data Server be taken down due to an attack, a lambda function would spin up the fallback to ensure continued availability of the data.
 
 Documentation written by: Marcus Nogueira
