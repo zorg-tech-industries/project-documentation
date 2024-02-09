@@ -125,3 +125,7 @@ This document outlines the security operations plan (SOP) for the client's cloud
 ## Additional Resources:
 
 - [GDPR official website](https://gdpr-info.eu/)
+
+## Revision History:
+
+2/8/2024 - Created by Kevin Hoang and Brittany Powell
