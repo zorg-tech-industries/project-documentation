@@ -65,3 +65,7 @@ This document serves as an overview of how Zorg Tech Industries maintains compli
 ## References
 
 - [GDPR - Amazon Web Services (AWS)](https://aws.amazon.com/compliance/gdpr-center/)
+
+## Revision History:
+
+2/8/2024 - Created by Kevin Hoang and Brittany Powell
